@@ -34,4 +34,27 @@ user_sentence = input("Enter a sentence: ")
 while (is_sentence(user_sentence) == False):
     print("This does not meet the criteria for a sentence.")
     user_input = input("Enter a sentence: ")
-    
+
+
+user_sentence = user_sentence.lower()
+clean_user_sentence = ""
+
+for r in user_sentence:
+    if r.isalpha() or r.isspace():
+        clean_user_sentence += r
+
+clean_user_sentence = clean_user_sentence.split()
+words = []
+frequency = []
+
+for i in clean_user_sentence:
+    if i in words:
+        frequency[words.index(i)] += 1
+        continue
+    words.append(i)
+    frequency.append(1)
+
+
+for j in range(len(words)):
+    print(f"{words[j]}: {frequency[j]}")
+
